@@ -26,16 +26,20 @@ jobs:
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
         run: python main.py
-          
-      - name: commit files
+
+      - name: Configure Git
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-          
-      - name: push changes
+          git config user.name "action@github.com"
+          git config user.email "GitHub Action"
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Automatically committed at $(date)"
+          git status
+
+      - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+          branch: main
