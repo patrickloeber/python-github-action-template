@@ -164,3 +164,9 @@
 2023-07-10 00:47:50,169 - __main__ - INFO - Weather in Berlin: 21.4
 2023-07-17 00:50:57,487 - __main__ - INFO - Token value: 1234
 2023-07-17 00:50:58,057 - __main__ - INFO - Weather in Berlin: 17.68
+2023-07-18 20:58:56,086 - __main__ - INFO - Token value: Token not available!
+2023-07-18 21:15:41,356 - __main__ - INFO - Token value: Token not available!
+2023-07-18 21:21:00,332 - __main__ - INFO - Token value: Token not available!
+2023-07-18 21:21:03,994 - __main__ - INFO - Weather in Berlin: 24.89
+2023-07-18 21:21:24,650 - __main__ - INFO - Token value: Token not available!
+2023-07-18 21:21:27,173 - __main__ - INFO - Weather in Berlin: AdoptAPet
