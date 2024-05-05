@@ -40,7 +40,8 @@ if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
     city = "Pune"
     try:
-        r = requests.get(f"https://weather.talkpython.fm/api/weather/?city={city}&country=IN")
+        r = requests.get(f"https://weather.talkpython.fm/api/weather/?city={city}&country=IN", 
+                         timeout=10)
         if r.status_code == 200:
             data = r.json()
             temperature = data["forecast"]["temp"]
