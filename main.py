@@ -1,6 +1,7 @@
 import logging
 import logging.handlers
 import os
+from datetime import datetime
 
 import requests
 
@@ -33,4 +34,8 @@ if __name__ == "__main__":
         temperature = data["forecast"]["temp"]
         feels_like = data["forecast"]["feels_like"]
         humidity = data["forecast"]["humidity"]
-        logger.info(f'Temperature in Pune: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}')
+
+        current_time = datetime.now()
+        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+        logger.info(f'{formatted_time}    -    Temperature in Pune: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}')
