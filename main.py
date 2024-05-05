@@ -58,7 +58,7 @@ if __name__ == "__main__":
             ist_now = utc_now.astimezone(ist)
             
             # Format and print the IST time
-            logger.info(f"Current IST time: {ist_now.strftime("%Y-%m-%d %H:%M:%S")}")
+            logger.info(f'Current IST time: {ist_now.strftime("%Y-%m-%d %H:%M:%S")}')
     
             logger.info(
                 f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
