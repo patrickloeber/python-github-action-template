@@ -49,7 +49,5 @@ if __name__ == "__main__":
         formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
         logger.info(
-            f"Temperature in {city}: {temperature}, \
-            it feels like: {feels_like}, \
-            with Humidity: {humidity}"
+            f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
         )
