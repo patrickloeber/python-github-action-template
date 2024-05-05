@@ -36,8 +36,9 @@ except KeyError:
 
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
+    city = "Delhi"
 
-    r = requests.get("https://weather.talkpython.fm/api/weather/?city=Pune&country=IN")
+    r = requests.get(f"https://weather.talkpython.fm/api/weather/?city={city}&country=IN")
     if r.status_code == 200:
         data = r.json()
         temperature = data["forecast"]["temp"]
@@ -48,7 +49,7 @@ if __name__ == "__main__":
         formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
         logger.info(
-            f"Temperature in Pune: {temperature}, \
+            f"Temperature in {city}: {temperature}, \
             it feels like: {feels_like}, \
             with Humidity: {humidity}"
         )
