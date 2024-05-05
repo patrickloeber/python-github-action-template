@@ -1,3 +1,12 @@
+"""
+This module provides functionality for retrieving weather data and logging it.
+
+It fetches weather data for Pune, India, from the Talk Python Weather API, logs the retrieved data, 
+and handles the absence of the environment variable 'SOME_SECRET'.
+
+Author: [Swapnanil Sharmah]
+"""
+
 import logging
 import logging.handlers
 import os
@@ -39,5 +48,5 @@ if __name__ == "__main__":
         formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
         logger.info(
-            f"Temperature in Pune: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
+            f"Temperature in Pune: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}" # pylint: disable=logging-fstring-interpolation
         )
