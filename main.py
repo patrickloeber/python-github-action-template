@@ -11,6 +11,8 @@ import logging
 import logging.handlers
 import os
 from datetime import datetime
+import pytz
+
 
 import requests
 
@@ -47,6 +49,17 @@ if __name__ == "__main__":
 
         current_time = datetime.now()
         formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+
+        # Get the current time in UTC
+        utc_now = datetime.utcnow()
+        
+        # Convert UTC time to IST
+        ist = pytz.timezone('Asia/Kolkata')
+        ist_now = utc_now.astimezone(ist)
+        
+        # Format and print the IST time
+        logger.info(f"Current IST time:", {ist_now.strftime("%Y-%m-%d %H:%M:%S")})
 
         logger.info(
             f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
