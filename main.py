@@ -63,5 +63,10 @@ if __name__ == "__main__":
             logger.info(
                 f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
             )
-    except:
-        logger.info("API timeout! Check after sometime.")
+    except requests.Timeout:
+    # Handle timeout exception here
+    print("Timeout occurred while fetching weather data.")
+
+    except requests.RequestException as e:
+        # Handle other request exceptions here
+        print("An error occurred:", e)
