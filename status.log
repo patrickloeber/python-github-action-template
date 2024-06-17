@@ -1530,3 +1530,6 @@
 2024-06-17 06:17:17,531 - __main__ - INFO - Token value: 784165
 2024-06-17 06:17:18,324 - __main__ - INFO - Current IST time: 2024-06-17 11:47:18
 2024-06-17 06:17:18,324 - __main__ - INFO - Temperature in Pune: 31.19, it feels like: 33.14, with Humidity: 51
+2024-06-17 08:15:48,487 - __main__ - INFO - Token value: 784165
+2024-06-17 08:15:48,881 - __main__ - INFO - Current IST time: 2024-06-17 13:45:48
+2024-06-17 08:15:48,881 - __main__ - INFO - Temperature in Pune: 31.75, it feels like: 33.68, with Humidity: 49
