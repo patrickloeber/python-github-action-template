@@ -12,9 +12,8 @@ import logging.handlers
 import os
 from datetime import datetime
 import pytz
-
-
 import requests
+import csv
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -66,6 +65,15 @@ if __name__ == "__main__":
             logger.info(
                 f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
             )
+
+            # Write data to CSV file
+            with open('weather_data.csv', mode='a', newline='') as file:
+                writer = csv.writer(file)
+                # Check if file is empty to write the header
+                if file.tell() == 0:
+                    writer.writerow(["Timestamp", "Temperature", "Feels Like", "Humidity"])
+                writer.writerow([ist_now.strftime("%Y-%m-%d %H:%M:%S"), temperature, feels_like, humidity])
+    
     except requests.Timeout:
         # Handle timeout exception here
         print("Timeout occurred while fetching weather data.")
