@@ -67,13 +67,22 @@ if __name__ == "__main__":
             )
 
             # Write data to CSV file
-            with open('weather_data.csv', mode='a', newline='') as file:
+            with open("weather_data.csv", mode="a", newline="") as file:
                 writer = csv.writer(file)
                 # Check if file is empty to write the header
                 if file.tell() == 0:
-                    writer.writerow(["Timestamp", "Temperature", "Feels Like", "Humidity"])
-                writer.writerow([ist_now.strftime("%Y-%m-%d %H:%M:%S"), temperature, feels_like, humidity])
-    
+                    writer.writerow(
+                        ["Timestamp", "Temperature", "Feels Like", "Humidity"]
+                    )
+                writer.writerow(
+                    [
+                        ist_now.strftime("%Y-%m-%d %H:%M:%S"),
+                        temperature,
+                        feels_like,
+                        humidity,
+                    ]
+                )
+
     except requests.Timeout:
         # Handle timeout exception here
         print("Timeout occurred while fetching weather data.")
