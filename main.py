@@ -7,13 +7,13 @@ and handles the absence of the environment variable 'SOME_SECRET'.
 Author: [Swapnanil Sharmah]
 """
 
+import csv
 import logging
 import logging.handlers
 import os
 from datetime import datetime
 import pytz
 import requests
-import csv
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -36,11 +36,11 @@ except KeyError:
 
 
 if __name__ == "__main__":
-    logger.info(f"Token value: {SOME_SECRET}")
-    city = "Pune"
+    logger.info("Token value: %s", SOME_SECRET)
+    CITY = "Pune"
     try:
         r = requests.get(
-            f"https://weather.talkpython.fm/api/weather/?city={city}&country=IN",
+            f"https://weather.talkpython.fm/api/weather/?city={CITY}&country=IN",
             timeout=10,
         )
         if r.status_code == 200:
@@ -60,14 +60,20 @@ if __name__ == "__main__":
             ist_now = utc_now.astimezone(ist)
 
             # Format and print the IST time
-            logger.info(f'Current IST time: {ist_now.strftime("%Y-%m-%d %H:%M:%S")}')
+            logger.info("Current IST time: %s", ist_now.strftime("%Y-%m-%d %H:%M:%S"))
 
             logger.info(
-                f"Temperature in {city}: {temperature}, it feels like: {feels_like}, with Humidity: {humidity}"
+                "Temperature in %s: %s, it feels like: %s, with Humidity: %s",
+                CITY,
+                temperature,
+                feels_like,
+                humidity,
             )
 
             # Write data to CSV file
-            with open("weather_data.csv", mode="a", newline="") as file:
+            with open(
+                "weather_data.csv", mode="a", newline="", encoding="utf-8"
+            ) as file:
                 writer = csv.writer(file)
                 # Check if file is empty to write the header
                 if file.tell() == 0:
