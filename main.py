@@ -4,7 +4,6 @@ Retrieve weather data for a given city and log it.
 
 import csv
 import logging
-import os
 from datetime import datetime
 from typing import Optional
 
@@ -45,7 +44,6 @@ def log_weather_data(city: str, data: dict) -> None:
     logger.info("Humidity: %s", data.get("forecast", {}).get("humidity"))
 
     current_time = datetime.now()
-    formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
     utc_now = datetime.utcnow()
     ist_now = utc_now.astimezone(pytz.timezone("Asia/Kolkata"))
