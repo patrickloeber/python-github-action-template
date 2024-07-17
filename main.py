@@ -6,6 +6,7 @@ import csv
 import logging
 from datetime import datetime
 from typing import Optional
+import os
 
 import pytz
 import requests
@@ -66,8 +67,7 @@ def main() -> None:
     """
     The main function for this module.
     """
-    # token = os.environ.get("SOME_SECRET")
-    token = 123
+    token = os.environ.get("SOME_SECRET")
     if token is None:
         logger.error("Token value is not available.")
         return
