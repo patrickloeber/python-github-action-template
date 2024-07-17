@@ -43,8 +43,6 @@ def log_weather_data(city: str, data: dict) -> None:
     logger.info("Feels Like: %s", data.get("forecast", {}).get("feels_like"))
     logger.info("Humidity: %s", data.get("forecast", {}).get("humidity"))
 
-    current_time = datetime.now()
-
     utc_now = datetime.utcnow()
     ist_now = utc_now.astimezone(pytz.timezone("Asia/Kolkata"))
 
